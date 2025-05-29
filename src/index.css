@@ -1,0 +1,437 @@
+/* Global Reset + Pastel Spring Theme */
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(to bottom, #fef6f0, #e6f6f3);
+  background-attachment: fixed;
+  color: #444;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* Pastel Palette */
+:root {
+  --pastel-pink: #fcd5ce;
+  --pastel-yellow: #fff1b6;
+  --pastel-mint: #d8f3dc;
+  --pastel-blue: #cde4f7;
+  --pastel-lavender: #e6d6f7;
+  --text-dark: #333;
+  --text-light: #666;
+  --primary: var(--pastel-blue);
+  --secondary: var(--pastel-pink);
+}
+
+/* Buttons */
+button {
+  background-color: var(--primary);
+  color: var(--text-dark);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+button:hover {
+  background-color: var(--secondary);
+}
+
+/* Navbar */
+nav {
+  background-color: var(--pastel-mint);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+nav a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 1rem;
+}
+nav a:hover {
+  color: #000;
+}
+
+.navbar {
+  background-color: var(--pastel-mint);
+  padding: 1rem 0rem; /* ← this ensures left + right padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+}
+
+
+.pastel-sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+body {
+  padding-top: 80px; /* prevent content being hidden under navbar */
+}
+
+
+/* Product Grid */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Product Card */
+.card {
+  background: #fff;
+  border: 2px solid var(--pastel-lavender);
+  border-radius: 20px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.card img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: var(--text-dark);
+}
+.card p {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Spring Floating Decor */
+.spring-decor {
+  position: fixed;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.spring-decor img {
+  position: absolute;
+  opacity: 0.6;
+  filter: blur(0.2px);
+  width: 100px;
+  height: auto;
+  animation: float 10s ease-in-out infinite;
+}
+
+.spring-decor .bunny {
+  top: 80%;
+  left: 10%;
+}
+
+.spring-decor .flower {
+  top: 30%;
+  right: 5%;
+}
+
+.spring-decor .tree {
+  bottom: 0;
+  left: 40%;
+}
+
+.spring-decor .bird {
+  top: 10%;
+  left: 60%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* Hero Banner */
+.hero-banner {
+  background: linear-gradient(135deg, #fcd5ce, #d8f3dc, #cde4f7, #e6d6f7);
+  background-size: 400% 400%;
+  animation: gradientFlow 15s ease infinite;
+  text-align: center;
+  padding: 3rem 1rem;
+  border-bottom: 4px solid var(--pastel-mint);
+  border-radius: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  width: fit-content;
+  height: fit-content;
+}
+
+.hero-banner img {
+  width: 100%;
+  max-height: fit-content;
+  object-fit: scale-down;
+  display: block;
+  border-radius: 32px;
+}
+
+
+.hero-banner h1 {
+  font-size: 2.5rem;
+  color: #642c73;
+  margin-bottom: 0.5rem;
+}
+
+.hero-banner p {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Falling Petals Animation */
+.petal {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-image: url('/assets/petal.png'); /* we'll add this image next */
+  background-size: cover;
+  animation: fall 10s linear infinite;
+  opacity: 0.7;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(600px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* cart page */
+
+.cart-card {
+  background-color: #fff;
+  border: 2px solid var(--pastel-lavender);
+  border-radius: 20px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+}
+.cart-card:hover {
+  transform: scale(1.01);
+}
+
+.cart-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.cart-info {
+  flex-grow: 1;
+}
+
+.cart-summary {
+  background-color: var(--pastel-yellow);
+  padding: 1.5rem;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.checkout-confirmation {
+  background-color: var(--pastel-blue);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 16px;
+  margin-top: 2rem;
+  animation: fadeInPop 0.5s ease-out;
+}
+
+@keyframes fadeInPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* toast component */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: var(--pastel-mint);
+  color: var(--text-dark);
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  z-index: 1000;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Card Button Animation */
+.card button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 0 transparent;
+}
+
+.card button:active {
+  animation: bouncePop 0.4s ease;
+}
+
+@keyframes bouncePop {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 10px 4px var(--pastel-yellow);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+.auth-form {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  background: var(--pastel-lavender);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* Auth Form Styles */
+.auth-form input {
+  display: block;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.auth-form button {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.error-msg {
+  color: crimson;
+  margin-top: 1rem;
+}
+
+/* logout button */
+.logout-btn {
+  background: transparent;
+  border: 2px solid var(--pastel-pink);
+  padding: 0.4rem 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #444;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: var(--pastel-pink);
+  color: white;
+}
+
+/* orders breakdown */
+.order-breakdown {
+  background: #fff8f5;
+  border: 2px dashed #ffcad4;
+  border-radius: 16px;
+  padding: 1rem 1.5rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.order-breakdown h4 {
+  margin-bottom: 1rem;
+  color: #ba4e68;
+}
+
+.breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.3rem 0;
+  color: #444;
+}
+
+.breakdown-row .discount {
+  color: #d62828;
+}
+
+.breakdown-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #2a9d8f;
+}
