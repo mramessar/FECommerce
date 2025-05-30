@@ -157,3 +157,20 @@ VITE_ADMIN_EMAIL=admin@example.com
 - Persistent user cart across sessions  
 - Unit tests for more components  
 - Product image uploads via Firebase Storage
+
+## Live Demo
+
+[View the deployed app on Vercel](https://fe-commerce.vercel.app/home)
+
+This e-commerce application was built with React, Redux Toolkit, Firebase Authentication, and Firestore.  
+It features full CI/CD automation using GitHub Actions and Vercel for seamless deployment.
+
+---
+
+## CI/CD Overview
+
+- **Continuous Integration (CI)**: Automatically builds and runs tests on every push to `main` using Jest
+- **Continuous Deployment (CD)**: Automatically deploys to Vercel only if all tests pass
+- Workflow defined in `.github/workflows/main.yml`
+
+![CI/CD](https://github.com/mramessar/FECommerce/actions/workflows/main.yml/badge.svg)
