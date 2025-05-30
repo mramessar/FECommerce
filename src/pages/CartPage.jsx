@@ -22,15 +22,6 @@ const CartPage = () => {
   const [tip, setTip] = useState(0)
   const [user] = useAuthState(auth)
 
-  useEffect(() => {
-    const saved = loadCartFromSession()
-    dispatch(loadCartFromStorage(saved))
-  }, [dispatch])
-
-  useEffect(() => {
-    saveCartToSession(cart)
-  }, [cart])
-
   const getTotalQuantity = () =>
     cart.reduce((total, item) => total + item.quantity, 0)
 
